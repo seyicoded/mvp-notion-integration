@@ -4,6 +4,8 @@ import "dotenv/config"
 import axios from "axios";
 import __string from "../data/html/sampl1";
 
+const { convert } = require('html-to-text');
+
 export const getNotionAuthUrlController = async (request: Request, response: Response)=>{
     
 
@@ -75,8 +77,6 @@ export const craeteNotionNoteController = async (request: Request, response: Res
     try {
 
         const {access_token, page_id} = request.body;
-
-        const { convert } = require('html-to-text');
 
         const options = {
             wordwrap: 130,
