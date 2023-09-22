@@ -3,12 +3,13 @@ import { loginController, registerController, requestPhoneOtpController, request
 import { alterInvitation, createGroup, inviteGroup, myCreatedGroup, viewInvitation } from '../controllers/group.controller';
 import { getProfileController, updateProfileController, updateProfileImageController } from '../controllers/profile.controller';
 import { authAdminMiddleWare, authMiddleWare } from '../middleware/auth.middleware';
-import { getNotionAuthUrlController, getTokenController } from '../controllers/notion.controller';
+import { craeteNotionNoteController, getNotionAuthUrlController, getTokenController } from '../controllers/notion.controller';
 
 const router = express.Router()
 
 router.get("/auth-url", getNotionAuthUrlController);
 router.post("/notion-callback", getTokenController);
+router.post("/notion/create-page", craeteNotionNoteController);
 // guest route
 
 // **** otp **** 
