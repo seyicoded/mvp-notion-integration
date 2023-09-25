@@ -82,8 +82,12 @@ export const craeteNotionNoteController = async (request: Request, response: Res
             wordwrap: 130,
             // ...
         };
-        const html = replaceAll(__string, "\n", "<br />");
-        const text: string = convert(html, options);
+        let html = replaceAll(__string, "\n", "<br />");
+        // return  ;
+        // html = replaceAll(__string, "<br /><br /><br /><br />", "");
+        html = replaceAll(html, "<br /><br />", "");
+        let text: string = convert(html, options);
+        // console.log(text)
         console.log(text); // Hello World
 
         const newString = [];
