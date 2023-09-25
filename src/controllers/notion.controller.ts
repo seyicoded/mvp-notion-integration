@@ -82,7 +82,7 @@ export const craeteNotionNoteController = async (request: Request, response: Res
             wordwrap: 130,
             // ...
         };
-        const html = __string;
+        const html = replaceAll(__string, "\n", "<br />");
         const text: string = convert(html, options);
         console.log(text); // Hello World
 
@@ -203,4 +203,8 @@ export const craeteNotionNoteController = async (request: Request, response: Res
             }
         }, response)   
     }
+}
+
+function replaceAll(str: string, find: string, replace: string) {
+    return str.replace(new RegExp(find, 'g'), replace);
 }
